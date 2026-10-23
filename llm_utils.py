@@ -52,3 +52,4 @@ def start_session():
 
 def send_message_tollm(message):
     response = chat.send_message(message)
+    return response.text

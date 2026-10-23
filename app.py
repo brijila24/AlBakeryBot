@@ -46,5 +46,5 @@ if user_input:
     # # Here you can add your code to generate a response from the AI model
     # # For demonstration, we'll just echo the user's input
     # ai_response = f"AI Response to: {user_input}"
-    # st.session_state.messages.append({"role": "assistant", "content": ai_response})
+    #st.session_state.messages.append({"role": "assistant", "content": ai_response})
 
