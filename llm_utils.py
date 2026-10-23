@@ -6,13 +6,29 @@ from dotenv import load_dotenv
 
 
 import sys
+import importlib.util
+import importlib.metadata
+
 print("Python executable:", sys.executable)
 
+try:
+    print("google-genai version:", importlib.metadata.version("google-genai"))
+except importlib.metadata.PackageNotFoundError:
+    print("ERROR: google-genai is NOT installed")
+
 import google
-print("Google namespace location:", getattr(google, "__file__", None))
-print("Google namespace paths:", list(getattr(google, "__path__", [])))
+
+print("Google module:", getattr(google, "__file__", None))
+print("Google paths:", list(getattr(google, "__path__", [])))
+
+try:
+    print("GenAI module spec:", importlib.util.find_spec("google.genai"))
+except (ImportError, ModuleNotFoundError, ValueError) as e:
+    print("GenAI module lookup failed:", repr(e))
 
 from google import genai
+from google.genai import types
+
 print("Google Gen AI imported successfully")
 load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
