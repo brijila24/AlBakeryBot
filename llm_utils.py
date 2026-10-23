@@ -3,6 +3,17 @@ from google.genai import types
 from menu_loader import load_menu
 import os
 from dotenv import load_dotenv
+
+
+import sys
+print("Python executable:", sys.executable)
+
+import google
+print("Google namespace location:", getattr(google, "__file__", None))
+print("Google namespace paths:", list(getattr(google, "__path__", [])))
+
+from google import genai
+print("Google Gen AI imported successfully")
 load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
 client=genai.Client(api_key=API_KEY)
