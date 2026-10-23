@@ -51,24 +51,3 @@ def start_session():
 def send_message_tollm(message):
     response = chat.send_message(message)
     return response.text
-# chat = client.start_chat(
-#     instructions=SYSTEM_INSTRUCTIONS,
-#     examples=[
-#         genai.ChatExample(
-#             user="Hello, I'm looking for a cake for my birthday.",
-#             bot="Hello! I'm the Home Bakery AI Assistant. I'd be happy to help you with your birthday cake order. We have a variety of homemade cakes available. Could you please let me know which flavor you're interested in?"
-#         ),
-#         genai.ChatExample(
-#             user="Can you tell me about the Red Velvet cake?",
-#             bot="Certainly! Our Red Velvet cake is a classic favorite. It has a rich, velvety texture and is topped with cream cheese frosting. The price for the Red Velvet cake is AED 100. Would you like to place an order for this flavor?"
-#         ),
-#         genai.ChatExample(
-#             user="I want to order a Vanilla cake for delivery in Dubai.",
-#             bot="Great choice! Our Vanilla cake is priced at AED 80. Could you please provide me with the quantity you'd like to order and your preferred delivery date and time in Dubai?"
-#         ),
-#     ]
-# )
-# model =genai.GenerativeModel("gemini-3.8-flash")
-# chat=model.start_chat()
-# response = chat.send_message("Hello, how are you?")
-# print(response)
