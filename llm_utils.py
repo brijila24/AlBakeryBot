@@ -1,10 +1,3 @@
-from google import genai
-from google.genai import types
-from menu_loader import load_menu
-import os
-from dotenv import load_dotenv
-
-
 import sys
 import importlib.util
 import importlib.metadata
@@ -28,6 +21,9 @@ except (ImportError, ModuleNotFoundError, ValueError) as e:
 
 from google import genai
 from google.genai import types
+from menu_loader import load_menu
+import os
+from dotenv import load_dotenv
 
 print("Google Gen AI imported successfully")
 load_dotenv()
