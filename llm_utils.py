@@ -1,3 +1,4 @@
+
 import sys
 import importlib.util
 import importlib.metadata
@@ -6,21 +7,23 @@ print("Python executable:", sys.executable)
 
 try:
     print("google-genai version:", importlib.metadata.version("google-genai"))
-except importlib.metadata.PackageNotFoundError:
-    print("ERROR: google-genai is NOT installed")
-
-import google
-
-print("Google module:", getattr(google, "__file__", None))
-print("Google paths:", list(getattr(google, "__path__", [])))
+except Exception as e:
+    print("Package version error:", repr(e))
 
 try:
+    import google
+    print("Google module:", getattr(google, "__file__", None))
+    print("Google paths:", list(getattr(google, "__path__", [])))
     print("GenAI module spec:", importlib.util.find_spec("google.genai"))
-except (ImportError, ModuleNotFoundError, ValueError) as e:
-    print("GenAI module lookup failed:", repr(e))
 
-from google import genai
-from google.genai import types
+    from google import genai
+    from google.genai import types
+    print("Google Gen AI imported successfully")
+
+except Exception as e:
+    print("GOOGLE GENAI IMPORT ERROR:", repr(e))
+    raise
+
 from menu_loader import load_menu
 import os
 from dotenv import load_dotenv
